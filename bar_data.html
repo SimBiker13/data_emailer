@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<title>Scanner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container">
+  <h2>Scanner</h2>
+  <p>Just click on the button to start</p>
+
+  <div class="w3-light-grey">
+    <div id="myBar" class="w3-container w3-green" style="height:24px;width:0%">
+    </div>
+  </div>
+
+  <p id="myP">Scanned <span id="demo">0</span> of 105 database</p>
+
+  <button class="w3-button w3-light-grey" onclick="move();this.disabled='true'">Scan !</button> 
+</div>
+
+<script>
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 0;
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+      document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
+      document.getElementById("myP").innerHTML = "Successfully scanned 105 database! You card is not in a database !";
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      var num = width * 1 / 1;
+      num = num.toFixed(0)
+      document.getElementById("demo").innerHTML = num;
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
